@@ -1,0 +1,10 @@
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\bin\Debug\SuperHero.DATA.EF.dll.config
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\bin\Debug\SuperHero.DATA.EF.dll
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\bin\Debug\SuperHero.DATA.EF.pdb
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\bin\Debug\EntityFramework.dll
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\bin\Debug\EntityFramework.xml
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\obj\Debug\SuperHero.DATA.EF.csprojResolveAssemblyReference.cache
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\obj\Debug\SuperHero.DATA.EF.dll
+C:\Users\student\Documents\Visual Studio 2015\Projects\TEAM\SuperHero\src\SuperHero.DATA.EF\obj\Debug\SuperHero.DATA.EF.pdb
