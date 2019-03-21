@@ -6,8 +6,8 @@
 
 <h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@* We changed the BeginForm() to define the multipart/form-data encription type *@
+@using (Html.BeginForm("Create", "Characters", FormMethod.Post, new { @enctype="multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -60,8 +60,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CharacterImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CharacterImage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CharacterImage, "", new { @class = "text-danger" })
+                @* We will be adding a new input manually so an image can be uploaded *@
+                <input type="file" name="heroImage" />
+                @*@Html.EditorFor(model => model.CharacterImage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CharacterImage, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
