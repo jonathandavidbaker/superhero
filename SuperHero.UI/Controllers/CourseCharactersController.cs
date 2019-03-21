@@ -10,11 +10,13 @@ using SuperHero.DATA.EF;
 
 namespace SuperHero.UI.Controllers
 {
+    
     public class CourseCharactersController : Controller
     {
         private SuperHeroEntities db = new SuperHeroEntities();
 
         // GET: CourseCharacters
+        [Authorize]
         public ActionResult Index()
         {
             var courseCharacters = db.CourseCharacters.Include(c => c.Character).Include(c => c.Cours);
@@ -22,6 +24,7 @@ namespace SuperHero.UI.Controllers
         }
 
         // GET: CourseCharacters/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace SuperHero.UI.Controllers
         }
 
         // GET: CourseCharacters/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.CharacterID = new SelectList(db.Characters, "CharacterID", "Name");
@@ -49,6 +53,7 @@ namespace SuperHero.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "CourseCharacterID,CourseID,CharacterID")] CourseCharacter courseCharacter)
         {
             if (ModelState.IsValid)
@@ -64,6 +69,7 @@ namespace SuperHero.UI.Controllers
         }
 
         // GET: CourseCharacters/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,6 +91,7 @@ namespace SuperHero.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "CourseCharacterID,CourseID,CharacterID")] CourseCharacter courseCharacter)
         {
             if (ModelState.IsValid)
@@ -99,6 +106,7 @@ namespace SuperHero.UI.Controllers
         }
 
         // GET: CourseCharacters/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -116,6 +124,7 @@ namespace SuperHero.UI.Controllers
         // POST: CourseCharacters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             CourseCharacter courseCharacter = db.CourseCharacters.Find(id);
