@@ -171,7 +171,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CharactersController.cs" />
+    <Compile Include="Controllers\CoursController.cs" />
+    <Compile Include="Controllers\CourseCharactersController.cs" />
+    <Compile Include="Controllers\CourseTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
@@ -358,6 +363,31 @@
     <Content Include="_archive\js\.DS_Store" />
     <Content Include="_archive\js\vendor\.DS_Store" />
     <Content Include="Views\Shared\_OriginalLayout.cshtml" />
+    <Content Include="Views\Characters\Create.cshtml" />
+    <Content Include="Views\Characters\Delete.cshtml" />
+    <Content Include="Views\Characters\Details.cshtml" />
+    <Content Include="Views\Characters\Edit.cshtml" />
+    <Content Include="Views\Characters\Index.cshtml" />
+    <Content Include="Views\Cours\Create.cshtml" />
+    <Content Include="Views\Cours\Delete.cshtml" />
+    <Content Include="Views\Cours\Details.cshtml" />
+    <Content Include="Views\Cours\Edit.cshtml" />
+    <Content Include="Views\Cours\Index.cshtml" />
+    <Content Include="Views\CourseCharacters\Create.cshtml" />
+    <Content Include="Views\CourseCharacters\Delete.cshtml" />
+    <Content Include="Views\CourseCharacters\Details.cshtml" />
+    <Content Include="Views\CourseCharacters\Edit.cshtml" />
+    <Content Include="Views\CourseCharacters\Index.cshtml" />
+    <Content Include="Views\CourseTypes\Create.cshtml" />
+    <Content Include="Views\CourseTypes\Delete.cshtml" />
+    <Content Include="Views\CourseTypes\Details.cshtml" />
+    <Content Include="Views\CourseTypes\Edit.cshtml" />
+    <Content Include="Views\CourseTypes\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
