@@ -3,23 +3,21 @@ using System.Web.Mvc;
 using System.Net.Mail;
 using System.Net;
 using System;
+using SuperHero.DATA.EF;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
 
 namespace IdentitySample.Controllers
 {
     public class HomeController : Controller
     {
+        private SuperHeroEntities db = new SuperHeroEntities();
+
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
-        }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
             return View();
         }
 
@@ -52,5 +50,29 @@ namespace IdentitySample.Controllers
             }
             return View("EmailConfirmation");
         }
+
+        public ActionResult Calendar()
+        {
+            IEnumerable<CalendarViewModel> model = (from co in db.Courses
+                                                    join cc in db.CourseCharacters on co.CourseID equals cc.CourseID
+                                                    join ch in db.Characters on cc.CharacterID equals ch.CharacterID
+                                                    join l in db.Locations on co.LocationID equals l.LocationID
+                                                    select new CalendarViewModel
+                                                    {
+                                                        CourseID = co.CourseID,
+                                                        Name = co.Name,
+                                                        Description = co.Description,
+                                                        Date = co.Date,
+                                                        Address = l.Address,
+                                                        City = l.City,
+                                                        State = l.State,
+                                                        Hero = ch.Name
+                                                    }
+                                                    
+                                                 ).ToList();
+            return View(model.OrderBy(m => m.Date));
+        }
+
+
     }
 }
