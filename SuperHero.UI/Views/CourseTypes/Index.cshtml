@@ -13,38 +13,53 @@
     </p>
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @if (User.IsInRole("Admin"))
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
                 {
-                @Html.ActionLink("Edit", "Edit", new { id = item.CourseTypeID }) @:|
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CourseTypeID }) @:|
                 }
-            @Html.ActionLink("Details", "Details", new { id = item.CourseTypeID })
-            @if (User.IsInRole("Admin"))
+                    @Html.ActionLink("Details", "Details", new { id = item.CourseTypeID })
+                    @if (User.IsInRole("Admin"))
                 {
-                @:| @Html.ActionLink("Delete", "Delete", new { id = item.CourseTypeID })
+                        @:| @Html.ActionLink("Delete", "Delete", new { id = item.CourseTypeID })
                 }
 
-        </td>
-    </tr>
-}
-
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+@section styles{
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+}
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
+}
