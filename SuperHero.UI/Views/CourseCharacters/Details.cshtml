@@ -1,0 +1,34 @@
+﻿@model SuperHero.DATA.EF.CourseCharacter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CourseCharacter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Character.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Character.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cours.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cours.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseCharacterID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
