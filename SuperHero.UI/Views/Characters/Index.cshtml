@@ -57,7 +57,8 @@
                 @Html.DisplayFor(modelItem => item.IsHero)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CharacterImage)
+                @*@Html.DisplayFor(modelItem => item.CharacterImage)*@
+                <img src="~/Content/Images/Heroes/@item.CharacterImage" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsActive)

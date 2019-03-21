@@ -51,10 +51,40 @@ namespace SuperHero.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "CharacterID,Name,Alias,Description,Occupation,IsHero,CharacterImage,IsActive")] Character character)
+        public ActionResult Create([Bind(Include = "CharacterID,Name,Alias,Description,Occupation,IsHero,IsActive")] Character character, HttpPostedFileBase heroImage)
         {
+            //HttpPostedFileBase is the datatype for the file.  The name of the variable MUST match the name attribute of the input type=file in the UI 
             if (ModelState.IsValid)
             {
+                //establish a variable for our default image
+                string imageName = "noImage.png";
+                //if a file was sent
+                if (heroImage != null)
+                {
+                    //reassign the variable to the filename that was sent over
+                    imageName = heroImage.FileName;
+
+                    //create a variable for the extension
+                    string ext = imageName.Substring(imageName.LastIndexOf('.'));
+
+                    //create a list of valid extensions
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    //if the file extension is valid, assign a GUID as the name and concatenate the extension
+                    string guid = new Guid().ToString();
+
+                    if (goodExts.Contains(ext.ToLower()))
+                    {
+                        imageName = guid + ext;
+                        //save the file to the webserver
+                        heroImage.SaveAs(Server.MapPath("~/Content/Images/Heroes/" + imageName));
+                    }
+                    else
+                    {
+                        imageName = "noImage.png";
+                    }                    
+                }
+                character.CharacterImage = imageName;
                 db.Characters.Add(character);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,33 +115,47 @@ namespace SuperHero.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "CharacterID,Name,Alias,Description,Occupation,IsHero,CharacterImage,IsActive")] Character character)
+        public ActionResult Edit([Bind(Include = "CharacterID,Name,Alias,Description,Occupation,IsHero,IsActive")] Character character, HttpPostedFileBase heroImage)
         {
+            //HttpPostedFileBase is the datatype for the file.  The name of the variable MUST match the name attribute of the input type=file in the UI 
             if (ModelState.IsValid)
             {
+                //establish a variable for our default image
+                string imageName = "noImage.png";
+                //if a file was sent
+                if (heroImage != null)
+                {
+                    //reassign the variable to the filename that was sent over
+                    imageName = heroImage.FileName;
+
+                    //create a variable for the extension
+                    string ext = imageName.Substring(imageName.LastIndexOf('.'));
+
+                    //create a list of valid extensions
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    //if the file extension is valid, assign a GUID as the name and concatenate the extension
+                    string guid = new Guid().ToString();
+
+                    if (goodExts.Contains(ext.ToLower()))
+                    {
+                        imageName = guid + ext;
+                        //save the file to the webserver
+                        heroImage.SaveAs(Server.MapPath("~/Content/Images/Heroes/" + imageName));
+                    }
+                    else
+                    {
+                        imageName = "noImage.png";
+                    }
+                }
+                character.CharacterImage = imageName;
                 db.Entry(character).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(character);
         }
-
-        // GET: Characters/Delete/5
-        [Authorize(Roles = "Admin")]
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Character character = db.Characters.Find(id);
-            if (character == null)
-            {
-                return HttpNotFound();
-            }
-            return View(character);
-        }
-
         // POST: Characters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
