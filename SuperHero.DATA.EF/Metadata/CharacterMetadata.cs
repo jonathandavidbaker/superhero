@@ -14,18 +14,22 @@ namespace SuperHero.DATA.EF
         public string Name { get; set; }
 
         [StringLength(100, ErrorMessage = "* 100 characters or fewer")]
+        [DisplayFormat(NullDisplayText = "N/A")]
         public string Alias { get; set; }
 
         [UIHint("MultilineText")]
+        [DisplayFormat(NullDisplayText = "N/A")]
         public string Description { get; set; }
 
         [StringLength(100, ErrorMessage = "* 100 characters or fewer")]
+        [DisplayFormat(NullDisplayText = "N/A")]
         public string Occupation { get; set; }
 
         [Display(Name = "Hero?")]
         public bool IsHero { get; set; }
 
         [StringLength(110, ErrorMessage = "* 110 characters or fewer")]
+        [Display(Name="Image")]
         public string CharacterImage { get; set; }
 
         [Display(Name = "Active?")]

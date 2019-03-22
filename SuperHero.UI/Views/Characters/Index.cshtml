@@ -62,7 +62,7 @@
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.CharacterImage)*@
-                    <img src="~/Content/Images/Heroes/@item.CharacterImage" />
+                    <img id="indeximg" src="@Url.Content("~/Content/Images/Heroes/" + item.CharacterImage)" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsActive)
@@ -86,7 +86,7 @@
 
 @section styles{
     <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    }
+}
 @section scripts{
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
@@ -94,4 +94,4 @@
             $('#table').DataTable();
         });
     </script>
-    }
+}
