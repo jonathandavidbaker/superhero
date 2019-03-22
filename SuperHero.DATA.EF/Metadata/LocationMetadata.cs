@@ -22,6 +22,7 @@ namespace SuperHero.DATA.EF
         public string State { get; set; }
 
         [StringLength(50, ErrorMessage = "* 50 characters or fewer")]
+        [DisplayFormat(NullDisplayText = "N/A")]
         public string Planet { get; set; }
     }
 

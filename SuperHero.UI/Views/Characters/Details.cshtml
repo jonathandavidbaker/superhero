@@ -4,18 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 
 <div>
-    <h4>Character</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
+    <dl class="dl-horizontal">
+        <dt></dt>
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            <img id="detailsimg" src="@Url.Content("~/Content/Images/Heroes/" + @Model.CharacterImage)" />
         </dd>
 
         <dt>
@@ -50,13 +46,7 @@
             @Html.DisplayFor(model => model.IsHero)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CharacterImage)
-        </dt>
 
-        <dd>
-            <img src="@Url.Content("~/Content/Images/Heroes/" + Model.CharacterImage)" />
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.IsActive)

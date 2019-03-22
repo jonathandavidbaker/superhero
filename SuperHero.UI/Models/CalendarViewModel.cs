@@ -15,6 +15,7 @@ namespace SuperHero.UI.Models
         [Display(Name="Class")]
         public string Name { get; set; }
 
+        [DisplayFormat(NullDisplayText = "N/A")]
         public string Description { get; set; }
 
         public DateTime Date { get; set; }

@@ -71,11 +71,11 @@ namespace SuperHero.UI.Controllers
                     string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
 
                     //if the file extension is valid, assign a GUID as the name and concatenate the extension
-                    string guid = new Guid().ToString();
+                    //string guid = new Guid().ToString();
 
                     if (goodExts.Contains(ext.ToLower()))
                     {
-                        imageName = guid + ext;
+                        //imageName = guid + ext;
                         //save the file to the webserver
                         heroImage.SaveAs(Server.MapPath("~/Content/Images/Heroes/" + imageName));
                     }
@@ -135,11 +135,11 @@ namespace SuperHero.UI.Controllers
                     string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
 
                     //if the file extension is valid, assign a GUID as the name and concatenate the extension
-                    string guid = new Guid().ToString();
+                    //string guid = new Guid().ToString();
 
                     if (goodExts.Contains(ext.ToLower()))
                     {
-                        imageName = guid + ext;
+                        //imageName = guid + ext;
                         //save the file to the webserver
                         heroImage.SaveAs(Server.MapPath("~/Content/Images/Heroes/" + imageName));
                     }

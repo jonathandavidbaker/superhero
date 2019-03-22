@@ -14,6 +14,7 @@ namespace SuperHero.DATA.EF
         public string Name { get; set; }
 
         [UIHint("MultilineText")]
+        [DisplayFormat(NullDisplayText = "N/A")]
         public string Description { get; set; }
         
         [Required(ErrorMessage = "* Required")]
