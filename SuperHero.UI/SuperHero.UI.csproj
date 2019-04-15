@@ -217,6 +217,7 @@
     <Content Include="Content\img\avatar_3.jpg" />
     <Content Include="Content\img\avatar_4.jpg" />
     <Content Include="Content\img\eva.jpg" />
+    <Content Include="Content\img\header-bg.jpg" />
     <Content Include="Content\img\map-marker.png" />
     <Content Include="Content\img\post-1.jpg" />
     <Content Include="Content\img\post-2.jpg" />
@@ -257,6 +258,7 @@
     <Content Include="_archive\img\avatar_3.jpg" />
     <Content Include="_archive\img\avatar_4.jpg" />
     <Content Include="_archive\img\eva.jpg" />
+    <Content Include="_archive\img\header-bg.jpg" />
     <Content Include="_archive\img\map-marker.png" />
     <Content Include="_archive\img\post-1.jpg" />
     <Content Include="_archive\img\post-2.jpg" />
@@ -286,7 +288,6 @@
     <Content Include="Content\fonts\Material-Design-Icons.ttf" />
     <Content Include="Content\fonts\Material-Design-Icons.woff" />
     <Content Include="Content\img\.DS_Store" />
-    <Content Include="Content\img\header-bg" />
     <Content Include="Content\js\.DS_Store" />
     <Content Include="Content\js\vendor\.DS_Store" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -362,7 +363,6 @@
     <Content Include="_archive\fonts\Material-Design-Icons.ttf" />
     <Content Include="_archive\fonts\Material-Design-Icons.woff" />
     <Content Include="_archive\img\.DS_Store" />
-    <Content Include="_archive\img\header-bg" />
     <Content Include="_archive\js\.DS_Store" />
     <Content Include="_archive\js\vendor\.DS_Store" />
     <Content Include="Views\Shared\_OriginalLayout.cshtml" />

@@ -32,12 +32,12 @@ namespace IdentitySample.Controllers
             if (ModelState.IsValid)
             {
                 string body = $"SuperHeroesInce Message from {cvm.Name} at {cvm.Email}: <br>{cvm.Message}";
-                MailMessage m = new MailMessage("no-reply@jdbaker.net", "jon.david.baker@gmail.com", cvm.Subject, body);
+                MailMessage m = new MailMessage("no-reply@DOMAIN.COM", "PERSONAL EMAIL ADDRESS", cvm.Subject, body);
                 m.IsBodyHtml = true;
                 m.ReplyToList.Add(cvm.Email);
 
-                SmtpClient client = new SmtpClient("mail.jdbaker.net");
-                client.Credentials = new NetworkCredential("no-reply@jdbaker.net", "pr$aM*Y*38V");
+                SmtpClient client = new SmtpClient("DOMAIN MAIL SERVER");
+                client.Credentials = new NetworkCredential("no-reply@DOMAIN.COM", "DOMAIN EMAIL PASSWORD");
 
                 try
                 {
